@@ -1,0 +1,10 @@
+create user nisha IDENTIFIED BY 'abcd';
+GRANT CREATE ON handsonassignment.login_details to nisha with grant option;
+GRANT SELECT ON handsonassignment.login_details to nisha with grant option;
+select * from login_details;
+start transaction;
+insert into login_details values('U001','Admin1@123'),('U002','Admin2@123');
+rollback;
+select * from login_details;
+revoke create on handsonassignment.login_details from nisha;
+revoke select on handsonassignment.login_details from nisha;
